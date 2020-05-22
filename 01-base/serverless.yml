@@ -1,0 +1,20 @@
+service: first-api-service
+
+provider:
+  name: aws
+  region: us-east-1
+  runtime: python3.7
+  stage: dev
+
+functions:
+  hello:
+    handler: src/item.hello_world
+    runtime: python3.7
+    memorySize: 256
+    timeout: 20
+    events:
+      - http:
+          path: hello
+          method: get
+          integration: lambda
+

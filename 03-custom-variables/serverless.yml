@@ -1,0 +1,26 @@
+service: first-api-service
+
+custom:
+  stage: ${opt:stage, self:provider.stage}
+
+provider:
+  name: aws
+  region: us-east-1
+  runtime: python3.7
+  stage: dev
+  apiKeys:
+    - name: ${self:custom.stage}-myKey
+
+functions:
+  hello:
+    handler: src/item.hello_world
+    runtime: ${self:provider.runtime}
+    memorySize: 256
+    timeout: 20
+    events:
+      - http:
+          path: hello
+          method: get
+          integration: lambda
+          private: true
+

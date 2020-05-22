@@ -1,0 +1,17 @@
+curl \
+-H "x-api-key :Ng4su80r7B7R9SKKyM1OL5bEfEoEvpo9CHvD1qbh" \
+https://3x3v13bxji.execute-api.us-east-1.amazonaws.com/dev/contact
+
+curl \
+-d '{"name":"Jane Doe", "phone":"90000-0000"}' \
+-H "x-api-key :Ng4su80r7B7R9SKKyM1OL5bEfEoEvpo9CHvD1qbh" \
+-H "Content-Type: application/json" \
+-X POST \
+https://3x3v13bxji.execute-api.us-east-1.amazonaws.com/dev/contact
+
+curl \
+-d '{"id":"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}' \
+-H "x-api-key :Ng4su80r7B7R9SKKyM1OL5bEfEoEvpo9CHvD1qbh" \
+-H "Content-Type: application/json" \
+-X DELETE \
+https://3x3v13bxji.execute-api.us-east-1.amazonaws.com/dev/contact
