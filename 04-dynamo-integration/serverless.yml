@@ -14,7 +14,7 @@ provider:
 
 functions:
   contact-post:
-    handler: src/contact.post
+    handler: src/contact.create
     environment:
       TABLE: ${self:custom.contactTable}
     runtime: ${self:provider.runtime}
@@ -33,7 +33,7 @@ functions:
         Resource:
           - !GetAtt ContactTable.Arn
   contact-get:
-    handler: src/contact.get
+    handler: src/contact.list
     environment:
       TABLE: ${self:custom.contactTable}
     runtime: ${self:provider.runtime}
@@ -52,7 +52,7 @@ functions:
         Resource:
           - !GetAtt ContactTable.Arn
   contact-delete:
-    handler: src/contact.delete
+    handler: src/contact.remove
     environment:
       TABLE: ${self:custom.contactTable}
     runtime: ${self:provider.runtime}

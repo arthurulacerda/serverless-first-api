@@ -7,7 +7,7 @@ def get_dynamo_table():
     table_name = os.environ['TABLE']
     return dynamodb.Table(table_name)
 
-def post(event, context):
+def create(event, context):
     body = event["body"]
 
     if ("name" in body and "phone" in body):
@@ -31,11 +31,11 @@ def post(event, context):
         "body": "No name or phone provided"
     }
 
-def get(event, context):
+def list(event, context):
     table = get_dynamo_table()
     return table.scan()['Items']
 
-def delete(event, context):
+def remove(event, context):
     body = event["body"]
 
     if "id" in body:
